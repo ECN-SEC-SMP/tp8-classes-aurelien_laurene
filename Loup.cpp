@@ -1,5 +1,11 @@
 #include "Loup.h"
 
+Loup::Loup(int maxX, int maxY) : Animal(maxX, maxY) {
+    nom = "W";
+    vivant = true;
+    setAttaque();
+}
+
 void Loup::setAttaque(){
     typeAttaque = rand()%3;
 }

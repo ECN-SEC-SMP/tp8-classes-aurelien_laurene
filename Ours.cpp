@@ -4,6 +4,12 @@
 const int abscisse[] = {2, 1, -1, -2, -2, -1, 1, 2};
 const int ordonnee[] = {1, 2, 2, 1, -1, -2, -2, -1};
 
+Ours::Ours(int maxX, int maxY) : Animal(maxX, maxY) {
+    nom = "O";
+    vivant = true;
+    setAttaque();
+}
+
 void Ours::setAttaque(){
     typeAttaque = 1; // Feuille
 }
