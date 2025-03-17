@@ -9,34 +9,30 @@ using namespace std;
 int maxX =  5;
 int maxY = 5;
 
+// Création de 4 animaux à des positions précises
+Loup* loup = new Loup(2, 2);
+Lion* lion = new Lion(4, 4);
+Ours* ours = new Ours(3, 4);
+Pierre* pierre = new Pierre(4, 3);
+
+// Création d'un tableau de pointeurs d'animaux
+Animal* animaux[] = {loup, lion, ours, pierre};
+int nbAnimaux = 4;
+
+// Prototypes des fonctions
+void collision();
 void tableaux();
 
 int main(){
+    
+    collision();
     tableaux();
     return 0;
 }
 
-void tableaux() {
-    // for(int i = 0; i < maxY; i++){
-    //     for(int j = 0; j < maxX; j++){
-    //         cout<<"|----";
-    //     }
-    //     cout<<"|"<<endl;
-    //     for(int j = 0; j < maxX; j++){
-    //         cout<<"|    ";
-    //     }
-    //     cout<<"|"<<endl;
-    // }
-    Loup* loup = new Loup(2, 2);
-    Lion* lion = new Lion(4, 4);
-    Ours* ours = new Ours(3, 4);
-    Pierre* pierre = new Pierre(4, 3);
-
-    Animal* animaux[] = {loup, lion, ours, pierre};
-    int nbAnimaux = 4;
-
+void collision() {
     // Vérification des collisions initiales
-    cout << "=== Vérification des collisions initiales ===" << endl;
+    cout << "=== Verification des collisions initiales ===" << endl;
     for(int i = 0; i < nbAnimaux; i++) {
         if(!animaux[i]->getVivant()) continue;
         
@@ -61,6 +57,10 @@ void tableaux() {
             }
         }
     }
+}
+
+void tableaux() {
+    
     // Allocation d'un tableau 2D de taille m x n
     int m = 5;  // Nombre de lignes
     int n = 5;  // Nombre de colonnes
@@ -93,8 +93,8 @@ void tableaux() {
         cout<<"|"<<endl;
     }
     // Libération de la mémoire (important !)
-    for (int i = 0; i < m; i++) {
-        delete[] tableau[i];
-    }
-    delete[] tableau;
+    // for (int i = 0; i < m; i++) {
+    //     delete[] tableau[i];
+    // }
+    delete tableau;
 }
